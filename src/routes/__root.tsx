@@ -79,15 +79,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Apply for admission to McDonalds International Schools. Complete the online application in four simple steps and track your admission status.",
+          "Welcome to McDonalds International Schools. Apply for admission online, track your application status, and start your child's journey to excellence.",
       },
       { property: "og:title", content: "McDonalds International Schools — Admission Portal" },
       {
         property: "og:description",
-        content: "Begin your child's journey to excellence — apply online today.",
+        content: "Welcome to McDonalds International Schools. Apply for admission online, track your application status, and start your child's journey to excellence.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "McDonalds International Schools — Admission Portal" },
+      { name: "twitter:description", content: "Welcome to McDonalds International Schools. Apply for admission online, track your application status, and start your child's journey to excellence." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81447a4f-36e9-4b43-9ac4-079657281220/id-preview-d0ee05d2--5c8b1deb-ab5b-4b20-9533-748c2abb0b87.lovable.app-1783908767252.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/81447a4f-36e9-4b43-9ac4-079657281220/id-preview-d0ee05d2--5c8b1deb-ab5b-4b20-9533-748c2abb0b87.lovable.app-1783908767252.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

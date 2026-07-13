@@ -12,10 +12,10 @@ export const Route = createFileRoute("/")({
         content:
           "Welcome to McDonalds International Schools. Apply for admission online, track your application status, and start your child's journey to excellence.",
       },
-      { property: "og:title", content: "McDonalds International Schools" },
+      { property: "og:title", content: "McDonalds International Schools — Admission Portal" },
       {
         property: "og:description",
-        content: "Apply for admission online and begin your child's journey to excellence.",
+        content: "Welcome to McDonalds International Schools. Apply for admission online, track your application status, and start your child's journey to excellence.",
       },
     ],
   }),
