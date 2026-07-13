@@ -110,7 +110,7 @@ function StatusCard({ row }: { row: Record<string, unknown> }) {
         )}
         <div className="flex-1">
           <div className="font-display text-lg font-bold text-foreground">
-            {row.student_first_name} {row.student_last_name}
+            {String(row.student_first_name ?? "")} {String(row.student_last_name ?? "")}
           </div>
           <div className="text-xs text-muted-foreground">
             Applying for <span className="font-medium text-foreground">{String(row.applying_for_grade ?? "—")}</span>
