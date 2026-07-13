@@ -40,7 +40,8 @@ export async function loadDraft(id: string): Promise<ApplicationRow | null> {
 }
 
 export async function saveDraft(id: string, patch: Record<string, unknown>) {
-  const { error } = await supabase.from("applications").update(patch).eq("id", id);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { error } = await supabase.from("applications").update(patch as any).eq("id", id);
   if (error) throw error;
 }
 
