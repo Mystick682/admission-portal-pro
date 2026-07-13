@@ -14,16 +14,241 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      application_files: {
+        Row: {
+          application_id: string
+          created_at: string
+          file_kind: string
+          file_name: string | null
+          id: string
+          public_url: string | null
+          size_bytes: number | null
+          storage_path: string
+        }
+        Insert: {
+          application_id: string
+          created_at?: string
+          file_kind: string
+          file_name?: string | null
+          id?: string
+          public_url?: string | null
+          size_bytes?: number | null
+          storage_path: string
+        }
+        Update: {
+          application_id?: string
+          created_at?: string
+          file_kind?: string
+          file_name?: string | null
+          id?: string
+          public_url?: string | null
+          size_bytes?: number | null
+          storage_path?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "application_files_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      applications: {
+        Row: {
+          academic_session: string | null
+          admission_number: string | null
+          admission_type: string | null
+          alt_phone_number: string | null
+          applying_for_grade: string | null
+          bece_result: string | null
+          certification_agreed: boolean
+          common_entrance_score: string | null
+          country: string | null
+          created_at: string
+          current_class: string | null
+          current_school: string | null
+          date_of_birth: string | null
+          email: string | null
+          emergency_contact: string | null
+          emergency_number: string | null
+          employer: string | null
+          father_name: string | null
+          gender: string | null
+          guardian_name: string | null
+          guardian_relationship: string | null
+          id: string
+          local_government: string | null
+          mother_name: string | null
+          nationality: string | null
+          neco_result: string | null
+          occupation: string | null
+          phone_number: string | null
+          photo_url: string | null
+          previous_class: string | null
+          previous_schools: string | null
+          religion: string | null
+          residential_address: string | null
+          state: string | null
+          state_of_origin: string | null
+          status: Database["public"]["Enums"]["application_status"]
+          student_first_name: string | null
+          student_last_name: string | null
+          student_middle_name: string | null
+          submitted_at: string | null
+          updated_at: string
+          waec_result: string | null
+        }
+        Insert: {
+          academic_session?: string | null
+          admission_number?: string | null
+          admission_type?: string | null
+          alt_phone_number?: string | null
+          applying_for_grade?: string | null
+          bece_result?: string | null
+          certification_agreed?: boolean
+          common_entrance_score?: string | null
+          country?: string | null
+          created_at?: string
+          current_class?: string | null
+          current_school?: string | null
+          date_of_birth?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          emergency_number?: string | null
+          employer?: string | null
+          father_name?: string | null
+          gender?: string | null
+          guardian_name?: string | null
+          guardian_relationship?: string | null
+          id?: string
+          local_government?: string | null
+          mother_name?: string | null
+          nationality?: string | null
+          neco_result?: string | null
+          occupation?: string | null
+          phone_number?: string | null
+          photo_url?: string | null
+          previous_class?: string | null
+          previous_schools?: string | null
+          religion?: string | null
+          residential_address?: string | null
+          state?: string | null
+          state_of_origin?: string | null
+          status?: Database["public"]["Enums"]["application_status"]
+          student_first_name?: string | null
+          student_last_name?: string | null
+          student_middle_name?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          waec_result?: string | null
+        }
+        Update: {
+          academic_session?: string | null
+          admission_number?: string | null
+          admission_type?: string | null
+          alt_phone_number?: string | null
+          applying_for_grade?: string | null
+          bece_result?: string | null
+          certification_agreed?: boolean
+          common_entrance_score?: string | null
+          country?: string | null
+          created_at?: string
+          current_class?: string | null
+          current_school?: string | null
+          date_of_birth?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          emergency_number?: string | null
+          employer?: string | null
+          father_name?: string | null
+          gender?: string | null
+          guardian_name?: string | null
+          guardian_relationship?: string | null
+          id?: string
+          local_government?: string | null
+          mother_name?: string | null
+          nationality?: string | null
+          neco_result?: string | null
+          occupation?: string | null
+          phone_number?: string | null
+          photo_url?: string | null
+          previous_class?: string | null
+          previous_schools?: string | null
+          religion?: string | null
+          residential_address?: string | null
+          state?: string | null
+          state_of_origin?: string | null
+          status?: Database["public"]["Enums"]["application_status"]
+          student_first_name?: string | null
+          student_last_name?: string | null
+          student_middle_name?: string | null
+          submitted_at?: string | null
+          updated_at?: string
+          waec_result?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_admission_number: { Args: never; Returns: string }
+      get_application_status: {
+        Args: { _admission_number: string }
+        Returns: {
+          admission_number: string
+          applying_for_grade: string
+          photo_url: string
+          status: Database["public"]["Enums"]["application_status"]
+          student_first_name: string
+          student_last_name: string
+          submitted_at: string
+        }[]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      submit_application: { Args: { _application_id: string }; Returns: string }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin"
+      application_status:
+        | "draft"
+        | "submitted"
+        | "under_review"
+        | "entrance_exam"
+        | "interview"
+        | "provisionally_admitted"
+        | "admission_offered"
+        | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +375,18 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin"],
+      application_status: [
+        "draft",
+        "submitted",
+        "under_review",
+        "entrance_exam",
+        "interview",
+        "provisionally_admitted",
+        "admission_offered",
+        "rejected",
+      ],
+    },
   },
 } as const
